@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+| {{ object.shortcode }}
+{% endblock title %}
+
+{% block styles %}
+{{ block.super }}
+<style>
+    .btn-new{
+    color: #ffbb33;
+    border: 1px solid #ffbb33;
+    background-color: #ffbb33;
+    display: inline-block;
+    width: 56px;
+    line-height: 56px;
+    border-radius: 28px;
+
+    transition: all 0.3s;
+    overflow: hidden;
+    }
+    .btn-new:hover{
+        padding: 0 25px;
+        background-color: #1e1e1e;
+
+        /* 裡面字多寬就自動設寬 */
+        width: auto;
+    }
+    .btn-new span{
+        /* 強制不換行 */
+
+        opacity: 0;
+    }
+    .btn-new:hover span{
+        opacity: 1;
+    }
+    /* 因層級關係要在span後面 */
+    .btn-new:after{
+        content: "+";
+        font-size: 40px;
+        line-height: 50px;
+        color: #1e1e1e;
+
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        transition: all 0.3s;
+    }
+    .btn-new:hover:after{
+        /* 透明度為零 */
+        opacity: 0;
+    }
+    .btn{
+        text-shadow: none;
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+<div class="text-center col-sm-12">
+    <h1>Already Exists</h1>
+    <p>{{ object.url }}</p>
+    <p><a class="btn btn-outline-dark" href="{{ object.get_short_url }}">{{ object.get_short_url }}</a></p>
+    <a class="btn-new" href="/" style="text-decoration:none;"><span>New</span></a>
+</div>
+{% endblock content %}

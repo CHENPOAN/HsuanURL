@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hsuan URL {% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css">
+
+    {% block styles %}
+    <style>
+        .html, body{
+            background-color: rgb(0, 109, 114);
+            background-image: url("https://i.imgur.com/WFwbAuT.jpg");
+        }
+        .masthead-brand{
+            color: rgb(232, 212, 113);
+            font-family: Chalkboard;
+        }
+        .nav-masthead .nav-link{
+            color: rgb(255, 243, 186);
+            border-bottom: .05rem solid;
+        }
+    </style>
+    {% endblock styles %}
+</head>
+<body>
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column" style="width: 100%;">
+      <header class="masthead mb-auto">
+          <div class="inner">
+              <h3 class="masthead-brand">HSUAN URL</h3>
+              <nav class="nav nav-masthead justify-content-center">
+                  <a class="nav-link active" href="/">Home</a>
+                  <a class="nav-link active" href="/">Analytics</a>
+              </nav>
+          </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <p class="lead">
+            {% block content %}
+            {% endblock content %}
+        </p>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+        </div>
+      </footer>
+    </div>
+</body>
+</html>
