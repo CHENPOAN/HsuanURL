@@ -24,9 +24,10 @@ class HomeView(View):
             "title": "Hsuan URL",
             "form": form
         }
+        print(form)
         template = "shortener/home.html"
         if form.is_valid():
-            new_url = form.cleaned_data.get("url333")
+            new_url = form.cleaned_data.get("url")
             print(new_url)
             obj, created = HsuanURL.objects.get_or_create(url=new_url)
             print(obj, created)
